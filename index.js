@@ -1,12 +1,17 @@
 const express = require('express');
 const app = express();
-const  UserDetails = require("./models/userDetails");
-const passport = require('passport');
 
+
+// adicionar quando criar o passport
+const passport = require("./config/passport")
 //permitindo utilizar arquivos estáticos HTML
 app.use(express.static(__dirname + "/views"));
 
 const bodyParser = require('body-parser');
+
+
+// se for utilizar a autenticação por sessão é necessário 
+// iniciar a sessão pelo express antes
 const expressSession = require('express-session')({
     secret: 'Hcode',
     resave: false,
@@ -19,22 +24,13 @@ app.use(expressSession)
 
 const port = process.env.PORT || 3000;
 
+// adicionar quando criar o passport
 app.use(passport.initialize())
 app.use(passport.session())
 
-
-passport.use(UserDetails.createStrategy());
-passport.serializeUser(UserDetails.serializeUser());
-passport.deserializeUser(UserDetails.deserializeUser());
-
 app.listen(port, ()=> console.log('App Running!'))
 
+// adicionar quando criar o routes
 const userDetailsRouter = require("./routes/userDetails-routes")
 
 app.use('/', userDetailsRouter);
-
-/*
- UserDetails.register({username:'paul', active: false}, 'paul')
- UserDetails.register({username:'jay', active: false}, 'jay')
- UserDetails.register({username:'roy', active: false}, 'roy')
-*/
