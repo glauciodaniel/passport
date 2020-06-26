@@ -4,7 +4,7 @@ const  UserDetails = require("./models/userDetails");
 const passport = require('passport');
 
 //permitindo utilizar arquivos estáticos HTML
-app.use(express.static(__dirname + "/html"));
+app.use(express.static(__dirname + "/views"));
 
 const bodyParser = require('body-parser');
 const expressSession = require('express-session')({

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path")
 const connectEnsureLogin = require('connect-ensure-login');
 const UserDetailsController = require("../controllers/useDetailsController");
 

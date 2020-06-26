@@ -1,5 +1,6 @@
 const passport = require('passport');
 
+const path = require("path")
 class UserDetailsController {
 
     formLogin (req, res, next) {
@@ -51,7 +52,7 @@ class UserDetailsController {
 
     logout (req, res) {
         req.logout()
-        return res.redirect('/')
+        return res.redirect('/login')
     }
 }
 
