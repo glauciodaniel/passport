@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const connectEnsureLogin = require('connect-ensure-login');
-const UserDetailsController = require("../controllers/useDetailsController");
+const UserDetailsController = require("../controllers/userDetailsController");
 
 const userController = new UserDetailsController;
 
