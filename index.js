@@ -29,7 +29,7 @@ passport.deserializeUser(UserDetails.deserializeUser());
 
 app.listen(port, ()=> console.log('App Running!'))
 
-const userDetailsRouter = require("./routes/uderDetails-routes")
+const userDetailsRouter = require("./routes/userDetails-routes")
 
 app.use('/', userDetailsRouter);
 
